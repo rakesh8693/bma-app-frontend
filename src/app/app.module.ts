@@ -50,7 +50,7 @@ import { ModifyComponent } from './modify/modify.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [LoginService,SingupService,ShorturlService,CardService,GroupService],
+  providers: [LoginService, SingupService, ShorturlService, CardService, GroupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,19 +15,19 @@ import { ShorturlviewComponent } from './shorturlview/shorturlview.component';
 import { SingupComponent } from './singup/singup.component';
 
 const routes: Routes = [
-  { path: "", component: NavComponent },
-  { path: "login", component: LoginComponent },
-  { path: "nav", component: NavComponent },
-  { path: "create", component: SingupComponent},
-  { path: "shorturl", component: ShorturlComponent, canActivate:[RouteGuardService]  },
-  { path: "card/:id", component: CardComponent, canActivate:[RouteGuardService] },
-  { path: "cardview", component: CardviewComponent, canActivate:[RouteGuardService] }, 
-  { path: "shorturlview", component: ShorturlviewComponent, canActivate:[RouteGuardService]  },
-  { path: "group/:id", component: GroupComponent, canActivate:[RouteGuardService] },
-  { path: "groupview", component: GroupComponent, canActivate:[RouteGuardService] },
-  { path: "groupcard/view", component: GroupviewComponent, canActivate:[RouteGuardService] },
-  { path: "validate/card", component: CardvalidateComponent, canActivate:[RouteGuardService] },
-  { path: "updatecard", component: ModifyComponent, canActivate:[RouteGuardService] }
+  { path: '', component: NavComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'nav', component: NavComponent },
+  { path: 'create', component: SingupComponent },
+  { path: 'shorturl', component: ShorturlComponent, canActivate: [RouteGuardService] },
+  { path: 'card/:id', component: CardComponent, canActivate: [RouteGuardService] },
+  { path: 'cardview', component: CardviewComponent, canActivate: [RouteGuardService] },
+  { path: 'shorturlview', component: ShorturlviewComponent, canActivate: [RouteGuardService] },
+  { path: 'group/:id', component: GroupComponent, canActivate: [RouteGuardService] },
+  { path: 'groupview', component: GroupComponent, canActivate: [RouteGuardService] },
+  { path: 'groupcard/view', component: GroupviewComponent, canActivate: [RouteGuardService] },
+  { path: 'validate/card', component: CardvalidateComponent, canActivate: [RouteGuardService] },
+  { path: 'updatecard', component: ModifyComponent, canActivate: [RouteGuardService] }
 ];
 
 @NgModule({

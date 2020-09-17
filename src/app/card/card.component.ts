@@ -22,18 +22,18 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     this.card = new Card();
     this.card.surlId = +this.route.snapshot.paramMap.get('id');
-    this.card.icon = "assets/favicon.png";
+    this.card.icon = 'assets/favicon.png';
   }
 
   doCreate() {
-    let response = this.cardService.create(this.card)
+    const response = this.cardService.create(this.card);
     response.subscribe(data => {
       this.toastr.success('Card Created Sucessfully', '', {
         timeOut: 3000,
         positionClass: 'toast-top-center'
-      })
-      this.router.navigate(["/shorturlview"])
-    }, error => this.handleError(error))
+      });
+      this.router.navigate(['/shorturlview']);
+    }, error => this.handleError(error));
   }
 
   uploadIcon() {
@@ -44,7 +44,7 @@ export class CardComponent implements OnInit {
     this.toastr.error('Create a User By Clicking Create Button', 'User DoesNot exists', {
       timeOut: 3000,
       positionClass: 'toast-top-center'
-    })
+    });
   }
 
 }

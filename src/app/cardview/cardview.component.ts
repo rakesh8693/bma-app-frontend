@@ -10,18 +10,18 @@ import { Cardview } from '../models/Cardview';
 })
 export class CardviewComponent implements OnInit {
 
-  cards:Cardview[];
+  cards: Cardview[];
 
-  constructor(private cardService:CardService,private router:Router) { }
-  
+  constructor(private cardService: CardService, private router: Router) { }
+
   ngOnInit() {
-    this.cardService.get().subscribe((data:any) => {
+    this.cardService.get().subscribe((data: any) => {
       this.cards = data;
     });
   }
 
-  doAdd($event,id){
-    this.router.navigate(["/group",id])
+  doAdd($event, id) {
+    this.router.navigate(['/group', id]);
   }
 
 }

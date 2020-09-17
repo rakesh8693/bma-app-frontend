@@ -8,13 +8,13 @@ import { User } from './models/user';
 })
 export class SingupService {
 
-  baseURL: string = "http://localhost:9090/";
+  baseURL = 'http://localhost:9090/';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public create(user:User): Observable<any>{
-    const headers = { 'content-type': 'application/json'}  
-    const body=JSON.stringify(user);
-    return this.http.post(this.baseURL + 'user', body,{'headers':headers})
+  public create(user: User): Observable<any> {
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(user);
+    return this.http.post(this.baseURL + 'user', body, { 'headers': headers });
   }
 }

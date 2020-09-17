@@ -10,36 +10,32 @@ import { ShorturlService } from '../shorturl.service';
   styleUrls: ['./shorturlview.component.css']
 })
 export class ShorturlviewComponent implements OnInit {
-  shorturl:Shorturlview[];
+  shorturl: Shorturlview[];
 
-  constructor(private shortUrlService:ShorturlService,private router:Router) { }
-  
+  constructor(private shortUrlService: ShorturlService, private router: Router) { }
+
   ngOnInit() {
-    
-    this.shortUrlService.get().subscribe((data:any) => {
-      console.log("data----->"+data);
+
+    this.shortUrlService.get().subscribe((data: any) => {
       this.shorturl = data;
     });
   }
 
-  doCreate(event,id){
-    console.log("shorturlid----->"+id)
-    this.router.navigate(["/card",id])
+  doCreate(event, id) {
+    this.router.navigate(['/card', id]);
   }
 
-  doShare(event,id){
-    console.log("shareicon----->"+id)
-    this.shortUrlService.share(id).subscribe(response=>{
-      let blob:any = new Blob([response], { type: 'text/csv' });
+  doShare(event, id) {
+    this.shortUrlService.share(id).subscribe(response => {
+      const blob: any = new Blob([response], { type: 'text/csv' });
       const url = window.URL.createObjectURL(blob);
       window.open(url);
     });
   }
 
-  doRedirect(event,url){
-    console.log("shareicon----->"+url)
-    window.location.href=url;
-    window.open(window.location.href,"_blank");
+  doRedirect(event, url) {
+    window.location.href = url;
+    window.open(window.location.href, '_blank');
   }
 
 }

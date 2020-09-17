@@ -20,15 +20,15 @@ export class ShorturlComponent implements OnInit {
   }
 
   doCreate() {
-    let response = this.shortUrlService.create(this.shorturl)
+    const response = this.shortUrlService.create(this.shorturl);
     response.subscribe(data => {
-      this.shorturl.longurl="";
-      this.shorturl.expiryDate=new Date();
+      this.shorturl.longurl = '';
+      this.shorturl.expiryDate = new Date();
       this.toastr.success('Short Url Created Sucessfully', '', {
         timeOut: 3000,
         positionClass: 'toast-top-center'
-      })
-    })
+      });
+    });
   }
 
 }

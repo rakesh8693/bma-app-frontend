@@ -10,70 +10,70 @@ import { Group } from './models/Group';
 })
 export class GroupService {
 
-  baseURL: string = "http://localhost:9090/";
+  baseURL = 'http://localhost:9090/';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public addToGroup(cardId,group:Group): Observable<any>{
-    group.userid=+sessionStorage.getItem('id');
+  public addToGroup(cardId, group: Group): Observable<any> {
+    group.userid = +sessionStorage.getItem('id');
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(this.getAuthToken()),
       'content-type': 'application/json'
-    })
-    const body=JSON.stringify(group);
-    return this.http.post(this.baseURL + 'group/'+cardId, body,{'headers':headers})
-  }
-  
-  public createGroup(group:Group): Observable<any>{
-    group.userid=+sessionStorage.getItem('id');
-    const headers = new HttpHeaders({
-      Authorization: 'Basic ' + btoa(this.getAuthToken()),
-      'content-type': 'application/json'
-    })
-    const body=JSON.stringify(group);
-    return this.http.post(this.baseURL + 'group', body,{'headers':headers})
+    });
+    const body = JSON.stringify(group);
+    return this.http.post(this.baseURL + 'group/' + cardId, body, { 'headers': headers });
   }
 
-  public updateCard(id:Number,card:Card): Observable<any>{
+  public createGroup(group: Group): Observable<any> {
+    group.userid = +sessionStorage.getItem('id');
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(this.getAuthToken()),
       'content-type': 'application/json'
-    })
-    const body=JSON.stringify(card);
-    return this.http.put(this.baseURL + 'card/'+id, body,{'headers':headers})
+    });
+    const body = JSON.stringify(group);
+    return this.http.post(this.baseURL + 'group', body, { 'headers': headers });
   }
 
-  public getCardByGroupCategory(group:Group): Observable<any>{
+  public updateCard(id: Number, card: Card): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(this.getAuthToken()),
       'content-type': 'application/json'
-    })
-    return this.http.get(this.baseURL + 'group/'+group.groupCategory+"/card/"+group.groupname,{'headers':headers})
+    });
+    const body = JSON.stringify(card);
+    return this.http.put(this.baseURL + 'card/' + id, body, { 'headers': headers });
   }
 
-  public getCardToValidate(group:Group): Observable<any>{
-    let userid=+sessionStorage.getItem('id');
+  public getCardByGroupCategory(group: Group): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(this.getAuthToken()),
       'content-type': 'application/json'
-    })
+    });
+    return this.http.get(this.baseURL + 'group/' + group.groupCategory + '/card/' + group.groupname, { 'headers': headers });
+  }
+
+  public getCardToValidate(group: Group): Observable<any> {
+    const userid = +sessionStorage.getItem('id');
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(this.getAuthToken()),
+      'content-type': 'application/json'
+    });
     let params = new HttpParams();
     params = params.append('groupCategory', group.groupCategory);
     params = params.append('groupName', group.groupname);
-    return this.http.get(this.baseURL + 'validateCard/'+userid,{headers,params})
+    return this.http.get(this.baseURL + 'validateCard/' + userid, { headers, params });
   }
 
-  public get(groupCategory): Observable<any>{
+  public get(groupCategory): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(this.getAuthToken()),
       'content-type': 'application/json'
-    })
-    return this.http.get(this.baseURL + 'groupNames/'+groupCategory,{'headers':headers})
+    });
+    return this.http.get(this.baseURL + 'groupNames/' + groupCategory, { 'headers': headers });
   }
 
-  getAuthToken():string{
-    let username = sessionStorage.getItem('userName');
-    let password = sessionStorage.getItem('password');
-    return username + ":" + password;
+  getAuthToken(): string {
+    const username = sessionStorage.getItem('userName');
+    const password = sessionStorage.getItem('password');
+    return username + ':' + password;
   }
 }

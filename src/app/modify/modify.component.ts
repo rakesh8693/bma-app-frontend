@@ -13,20 +13,22 @@ import { Cardview } from '../models/Cardview';
 export class ModifyComponent implements OnInit {
 
   card: Card;
-  cardView:Cardview;
+  cardView: Cardview;
 
-  constructor(private groupService:GroupService,private dataService:DataService,private toastr:ToastrService) { }
+  constructor(private groupService: GroupService, private dataService: DataService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.card=new Card;
-    this.cardView=this.dataService.card;
-    this.card.icon = "assets/favicon.png";
+    this.card = new Card;
+    this.cardView = this.dataService.card;
+    this.card.icon = 'assets/favicon.png';
   }
 
-  doUpdate(){
-    this.groupService.updateCard(this.cardView.id,this.card).subscribe((data:any) => {
-      this.toastr.success('Request has to approved by admin','',{timeOut: 3000,
-        positionClass: 'toast-top-center'})
+  doUpdate() {
+    this.groupService.updateCard(this.cardView.id, this.card).subscribe((data: any) => {
+      this.toastr.success('Request has to approved by admin', '', {
+        timeOut: 3000,
+        positionClass: 'toast-top-center'
+      });
     });
   }
 

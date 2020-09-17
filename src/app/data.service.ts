@@ -6,6 +6,6 @@ import { Cardview } from './models/Cardview';
   providedIn: 'root'
 })
 export class DataService {
-  card:Cardview;
+  card: Cardview;
   constructor() { }
 }

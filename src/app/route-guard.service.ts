@@ -5,19 +5,19 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angul
 @Injectable({
   providedIn: 'root'
 })
-export class RouteGuardService implements CanActivate{
+export class RouteGuardService implements CanActivate {
 
   constructor() { }
 
-  canActivate(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    if(this.isUserLoggedIn()){
-      return true
+  canActivate(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.isUserLoggedIn()) {
+      return true;
     }
-    return false
+    return false;
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('userName');
+    const user = sessionStorage.getItem('userName');
     return !(user === null);
   }
 }

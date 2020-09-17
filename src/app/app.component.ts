@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'bma-app-frontend';
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('userName');
+    const user = sessionStorage.getItem('userName');
     return !(user === null);
   }
   userLogOut() {
@@ -20,6 +20,6 @@ export class AppComponent {
     sessionStorage.removeItem('userName');
     sessionStorage.removeItem('password');
     sessionStorage.removeItem('role');
-    this.router.navigate(["/nav"]);   
+    this.router.navigate(['/nav']);
   }
 }

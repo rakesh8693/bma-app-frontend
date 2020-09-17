@@ -1,5 +1,5 @@
 export class Shorturl {
-    longurl:string
-    expiryDate:Date
-    userId:Number
+    longurl: string;
+    expiryDate: Date;
+    userId: Number;
 }

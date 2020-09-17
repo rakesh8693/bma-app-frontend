@@ -11,27 +11,31 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SingupComponent implements OnInit {
 
-  user:User;
+  user: User;
 
-  constructor(private singupService:SingupService,private router:Router,private toastr: ToastrService) { }
+  constructor(private singupService: SingupService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.user = new User();
   }
 
-  doCreate(){
-    let response=this.singupService.create(this.user)
-    response.subscribe(data=>{
+  doCreate() {
+    const response = this.singupService.create(this.user);
+    response.subscribe(data => {
       console.log(data);
-      this.toastr.success('User Created','',{timeOut: 3000,
-        positionClass: 'toast-top-center'})
-      this.router.navigate(["/login"])
-    },error=>this.handleError(error))
+      this.toastr.success('User Created', '', {
+        timeOut: 3000,
+        positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/login']);
+    }, error => this.handleError(error));
   }
 
-  handleError(error){
-    this.toastr.error('User Name Already Exists','',{timeOut: 3000,
-      positionClass: 'toast-top-center'})
+  handleError(error) {
+    this.toastr.error('User Name Already Exists', '', {
+      timeOut: 3000,
+      positionClass: 'toast-top-center'
+    });
   }
 
 }
