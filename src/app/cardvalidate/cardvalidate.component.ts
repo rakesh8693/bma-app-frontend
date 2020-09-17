@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CardService } from '../card.service';
 import { GroupService } from '../group.service';
-import { Cardview } from '../models/Cardview';
+import { Cardview } from '../models/cardview';
 import { Group } from '../models/Group';
 
 @Component({

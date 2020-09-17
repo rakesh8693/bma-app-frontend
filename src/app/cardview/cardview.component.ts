@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CardService } from '../card.service';
-import { Cardview } from '../models/Cardview';
+import { Cardview } from '../models/cardview';
 
 @Component({
   selector: 'app-cardview',

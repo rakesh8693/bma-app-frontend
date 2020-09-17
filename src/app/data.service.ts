@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cardview } from './models/Cardview';
+import { Cardview } from './models/cardview';
 
 @Injectable({
   providedIn: 'root'

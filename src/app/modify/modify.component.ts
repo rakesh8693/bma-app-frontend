@@ -3,7 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../data.service';
 import { GroupService } from '../group.service';
 import { Card } from '../models/card';
-import { Cardview } from '../models/Cardview';
+import { Cardview } from '../models/cardview';
 
 @Component({
   selector: 'app-modify',
