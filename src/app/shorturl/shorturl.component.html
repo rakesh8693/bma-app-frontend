@@ -1,0 +1,18 @@
+<td bgcolor="#FFFFFF" style="line-height:100px;" colspan=3>&nbsp;</td>
+<div class="col-lg-6 offset-lg-3">
+  <div *ngIf='Valid' class="alert alert-success" role="alert">
+    <small>{{message}}</small>
+  </div>  
+  <form>
+    <h1>Create Short Url</h1>
+    <div class="form-group">
+      <label for="longurlId">Long Url</label>
+      ​<textarea rows="4" cols="40" class="form-control" id="longurlId" name="longurl" [(ngModel)]="shorturl.longurl"  placeholder="longurl"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="expiryDateId">Expiry Date</label>
+      <input type="date" class="form-control" id="expiryDateId" name="expiryDate" [(ngModel)]="shorturl.expiryDate" placeholder="Expiry Date">
+    </div>
+    <button type="submit" class="btn btn-primary" name="Create" id="create" value="Create" (click)="doCreate()">Create</button>
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<div>
+  <br>
+  <h3>&nbsp;&nbsp;List of Cards In Group</h3>
+</div>
+<hr>
+<div class="col-lg-6 offset-lg-3">
+  <label for="groupid">Choose a Group Category</label>
+  <div>
+    <select id="groupid" (change)="onChange($event.target.value)">
+      <option value=""></option>
+      <option *ngFor="let group of groupList" [ngValue]="group">{{group.name}}</option>
+    </select>
+  </div>
+  <br>
+  <label for="groupName">Choose a Group Name</label>
+  <div>
+    <select id="groupName" (change)="onSetGrpName($event.target.value)">
+      <option value=""></option>
+      <option *ngFor="let groupName of groupNameList" [ngValue]="groupName">{{groupName}}</option>
+    </select>
+  </div>
+  <br>
+  <a class="btn btn-success" (click)="doretrive($event)">Retrive Cards</a>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let card of cards; let no= index" style="margin:20px;">
+      <div class="card" style="width: 15rem;">
+        <div class="card-header">
+          <img class="card-img-top" src={{card.icon}} alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{card.title}}</h5>
+          <p class="card-text">{{card.description}}</p>
+          <a class="btn btn-primary" (click)="doUpdate($event,card)">Update Card</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

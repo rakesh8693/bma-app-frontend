@@ -1,0 +1,22 @@
+<td bgcolor="#FFFFFF" style="line-height:100px;" colspan=3>&nbsp;</td>
+<div class="col-lg-6 offset-lg-3">
+  <form>
+    <h1>Update Card</h1>
+    <div class="form-group">
+      <label for="titleId">Title</label>
+      <input type="text" class="form-control" id="titleId" name="title" [(ngModel)]="card.title"  placeholder="Title">
+    </div>
+    <div class="form-group">
+      <label for="descriptionId">Description</label>
+      <input type="text" class="form-control" id="descriptionId" name="description" [(ngModel)]="card.description"  placeholder="Description">
+    </div>
+    <div class="form-group">
+      <input type="file" id="BtnBrowseHidden" name="files" style="display: none;" (change)="uploadIcon()"/>
+        <label for="BtnBrowseHidden" id="LblBrowse">
+          Icon <i class="fa fa-upload" aria-hidden="true"> Browse</i>
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary" name="update" id="update" value="Update" (click)="doUpdate()">Update</button>
+  </form>
+</div>
+

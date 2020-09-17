@@ -1,0 +1,31 @@
+<td bgcolor="#FFFFFF" style="line-height:100px;" colspan=3>&nbsp;</td>
+<div class="col-lg-6 offset-lg-3">
+<div>
+   <h3>List of Short URL</h3>
+</div>
+<hr>
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">S.NO</th>
+        <th scope="col">ShortUrl</th>
+        <th scope="col">ExpiryDate</th>
+        <th scope="col">Share ShortUrl</th>
+        <th scope="col">Redirect</th>
+        <th scope="col">Create Card</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let surl of shorturl; let no= index">
+        <td>{{no+1}}</td>
+        <td>{{surl.surl}}</td>
+        <td>{{surl.expiryDate | date: 'dd/MM/yyyy'}}</td>
+        <td><i class="fa fa-share-alt" aria-hidden="true" (click)="doShare($event,surl.id)"></i></td>
+        <td><button type="button" class="btn btn-info" (click)="doRedirect($event,surl.lurl)">Redirect</button></td>        
+        <td><button type="button" class="btn btn-success" (click)="doCreate($event,surl.id)">Create Card</button></td>        
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

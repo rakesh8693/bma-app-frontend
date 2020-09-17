@@ -1,0 +1,41 @@
+<td bgcolor="#FFFFFF" style="line-height:100px;" colspan=2>&nbsp;</td>
+<div  class="col-lg-6 offset-lg-3">
+  <form>
+    <h1 *ngIf='!notExists'>Create Group</h1>
+    <h1 *ngIf='notExists'>Add To Group</h1>
+    <hr>
+    <div class="form-group">
+      <label for="groupid">Choose a Group Category</label>
+      <div>
+        <select id="groupid" (change)="onChange($event.target.value)">
+          <option value=""></option>
+          <option *ngFor="let group of groupList" [ngValue]="group">{{group.name}}</option>
+        </select>
+      </div>
+      <br>
+      <div *ngIf='!notExists' class="form-group">
+        <label for="groupName">Choose a Group Name</label>
+        <div>
+          <select id="groupName" ([ngModel])="group.groupName">
+            <option value=""></option>
+            <option *ngFor="let g of groupNameList" [ngValue]="g">{{g}}</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <div *ngIf='notExists' class="form-group">
+        <label for="name">Group Name</label>
+        <input type="text" class="form-control" id="name" name="Group Name" [(ngModel)]="group.groupname"
+          placeholder="Group Name">
+      </div>
+      <div>
+        <button *ngIf='!notExists' type="submit" class="btn btn-success" name="group" id="group" value="AddToGroup"
+          (click)="doAdd()">AddToGroup</button>
+        <button *ngIf='notExists' type="submit" class="btn btn-primary" name="Create" id="create" value="CreateGroup"
+          (click)="doCreate()">CreateGroup</button>
+        <button type="submit" class="btn btn-danger" name="Cancel" id="cancel" value="Cancel"
+          (click)="doCancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
