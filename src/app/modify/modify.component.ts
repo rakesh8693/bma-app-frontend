@@ -32,4 +32,11 @@ export class ModifyComponent implements OnInit {
     });
   }
 
+  uploadIcon() {
+    this.toastr.success('uploaded sucessfully', '', {
+      timeOut: 3000,
+      positionClass: 'toast-top-center'
+    });
+  }
+
 }
