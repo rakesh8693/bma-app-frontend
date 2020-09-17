@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Card } from './models/card';
-import { Cardview } from './models/Cardview';
 import { Group } from './models/Group';
 
 @Injectable({

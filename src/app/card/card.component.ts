@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CardService } from '../card.service';
-import { DataService } from '../data.service';
-import { GroupService } from '../group.service';
 import { Card } from '../models/card';
-import { Cardview } from '../models/Cardview';
 
 @Component({
   selector: 'app-card',
